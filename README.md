@@ -24,5 +24,4 @@ Contents
 [Arvin Behshad](http://arvinb.com)
 
 CS student at KTH - Royal Institute of Technology  
-
 Stockholm, Sweden
