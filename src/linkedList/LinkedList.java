@@ -1,24 +1,39 @@
 package linkedList;
 
 public class LinkedList<T extends Comparable<T>> {
-	private Node<T> first;
+	private Node<T> start;
 	// TODO keep track of last node
 
-	public static void main(String[] args) {
-		LinkedList<Character> word = new LinkedList<Character>();
+	void append(T head) {
+		Node<T> newNode = new Node<T>(head, null);
 
+		if (this.start == null) {
+			this.start = newNode;
+		} else {
+
+			Node<T> currentNode = this.start;
+
+			while (currentNode.getTail() != null) {
+				currentNode = currentNode.getTail();
+			}
+
+			currentNode.setTail(newNode);
+		}
 	}
 
 	public String toString() {
-		return toStringHelper(this.first);
+		return toStringHelper(this.start, "");
 	}
 
-	private String toStringHelper(Node<T> list) {
-		if (list.getHead() == null) {
-			return "";
-		} else {
-			return toStringHelper(list.getTail()) + " ";
+	private String toStringHelper(Node<T> currentNode, String result) {
+		if (currentNode.getHead() == null) {
+			return result;
+		} else if (currentNode.getTail() != null) {
+			String r = currentNode.getHead().toString();
+			r = result + r;
+			return toStringHelper(currentNode.getTail(), r) + " ";
 		}
+		return result + currentNode.getHead().toString();
 	}
 
 	public void insertAt(int index, Node<T> list, Node<T> newNode) {
@@ -27,18 +42,18 @@ public class LinkedList<T extends Comparable<T>> {
 			return;
 		}
 		if (index == 0) {
-			Node<T> node0 = this.first;
+			Node<T> node0 = this.start;
 			Node<T> node1 = node0.getTail();
 			Node<T> node2 = node1.getTail();
 
-			this.first = node1;
+			this.start = node1;
 			node1.setTail(node0);
 			node0.setTail(node2);
 		}
 	}
 
 	public int getLength() {
-		return getLengthHelper(this.first);
+		return getLengthHelper(this.start);
 	}
 
 	private int getLengthHelper(Node<T> node) {
