@@ -2,13 +2,15 @@ package linkedList;
 
 public class LinkedList<T extends Comparable<T>> {
 	private Node<T> start;
-	// TODO keep track of last node
+	public int length = 0;
+	// TODO keep track of last node using a length count
 
 	void append(T head) {
 		Node<T> newNode = new Node<T>(head, null);
 
 		if (this.start == null) {
 			this.start = newNode;
+			length++;
 		} else {
 
 			Node<T> currentNode = this.start;
@@ -16,8 +18,8 @@ public class LinkedList<T extends Comparable<T>> {
 			while (currentNode.getTail() != null) {
 				currentNode = currentNode.getTail();
 			}
-
 			currentNode.setTail(newNode);
+			length++;
 		}
 	}
 
@@ -36,19 +38,26 @@ public class LinkedList<T extends Comparable<T>> {
 		return result + currentNode.getHead().toString();
 	}
 
-	public void insertAt(int index, Node<T> list, Node<T> newNode) {
+	public void insertAt(int index, LinkedList<T> list, Node<T> newNode) {
 		if (index < 0 || index - 1 > getLength()) {
 			System.out.println("Index out of bounds.");
 			return;
 		}
 		if (index == 0) {
-			Node<T> node0 = this.start;
-			Node<T> node1 = node0.getTail();
-			Node<T> node2 = node1.getTail();
-
-			this.start = node1;
-			node1.setTail(node0);
-			node0.setTail(node2);
+			Node<T> oldStart = this.start;
+			this.start = newNode;
+			this.start.setTail(oldStart);
+			length++;
+			return;
+		} else {
+			Node<T> currentNode = this.start;
+			for (int n = 0; n < index - 1; n++) {
+				currentNode = currentNode.getTail();
+			}
+			Node<T> oldNext = currentNode.getTail();
+			currentNode.setTail(newNode);
+			newNode.setTail(oldNext);
+			length++;
 		}
 	}
 
