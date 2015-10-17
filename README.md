@@ -19,6 +19,7 @@ Contents
  easy.py contains a condensed version whereas easier.py is a bit easier to read (as the name suggests).
 
 **src folder**
+
 Contains my relevant Eclipse projects. These are almost exclusively written in Java
 
 *QuickSort
