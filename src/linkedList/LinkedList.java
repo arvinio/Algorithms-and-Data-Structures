@@ -6,6 +6,19 @@ public class LinkedList<T extends Comparable<T>> {
 
 	public static void main(String[] args) {
 		LinkedList<Character> word = new LinkedList<Character>();
+
+	}
+
+	public String toString() {
+		return toStringHelper(this.first);
+	}
+
+	private String toStringHelper(Node<T> list) {
+		if (list.getHead() == null) {
+			return "";
+		} else {
+			return toStringHelper(list.getTail()) + " ";
+		}
 	}
 
 	public void insertAt(int index, Node<T> list, Node<T> newNode) {
