@@ -22,8 +22,11 @@ Contents
 
 Contains my relevant Eclipse projects. These are almost exclusively written in Java
 
-*QuickSort
-*LinkedList
+* LinkedList -- I implemented the methods below
+	* ReverseList
+	* Append
+	* insertAt(index)
+	* replaceValue(newValue, index)
 
 ==================
 
