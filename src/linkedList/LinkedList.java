@@ -39,10 +39,8 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 
 	public void insertAt(int index, LinkedList<T> list, Node<T> newNode) {
-		if (index < 0 || index - 1 > this.length) {
-			System.out.println("Index out of bounds.");
+		if (!indexCheck(index))
 			return;
-		}
 		if (index == 0) {
 			Node<T> oldStart = this.start;
 			this.start = newNode;
@@ -85,6 +83,25 @@ public class LinkedList<T extends Comparable<T>> {
 		// since loop stops before last node
 		currentNode.setTail(previousNode);
 		this.start = currentNode;
+	}
+
+	public void replaceValue(T newValue, int index) {
+		if (!indexCheck(index))
+			return;
+		Node<T> currentNode = this.start;
+
+		for (int i = 0; i < 2; i++) {
+			currentNode = currentNode.getTail();
+		}
+		currentNode.setHead(newValue);
+	}
+
+	public boolean indexCheck(int index) {
+		if (index < 0 || index - 1 > this.length) {
+			System.out.println("Index out of bounds.");
+			return false;
+		} else
+			return true;
 	}
 
 	public int getLength() {
