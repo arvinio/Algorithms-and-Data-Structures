@@ -2,24 +2,28 @@ package linkedList;
 
 public class LinkedList<T extends Comparable<T>> {
 	private Node<T> start;
-	public int length = 0;
-	// TODO keep track of last node using a length count
+	private Node<T> last;
+	public static int length = 0;
 
-	void append(T head) {
-		Node<T> newNode = new Node<T>(head, null);
+	void append(T value) {
+		Node<T> newNode = new Node<T>(value, null);
 
 		if (this.start == null) {
 			this.start = newNode;
 			length++;
+			last = newNode;
 		} else {
 
-			Node<T> currentNode = this.start;
+			// Node<T> currentNode = this.start;
+			//
+			// while (currentNode.getTail() != null) {
+			// currentNode = currentNode.getTail();
+			// }
+			// currentNode.setTail(newNode);
+			last.setTail(newNode);
 
-			while (currentNode.getTail() != null) {
-				currentNode = currentNode.getTail();
-			}
-			currentNode.setTail(newNode);
 			length++;
+			last = newNode;
 		}
 	}
 
@@ -46,6 +50,7 @@ public class LinkedList<T extends Comparable<T>> {
 			this.start = newNode;
 			this.start.setTail(oldStart);
 			length++;
+			last = newNode;
 			return;
 		} else {
 			Node<T> currentNode = this.start;
@@ -56,6 +61,7 @@ public class LinkedList<T extends Comparable<T>> {
 			currentNode.setTail(newNode);
 			newNode.setTail(oldNext);
 			length++;
+			last = newNode;
 		}
 	}
 
@@ -90,10 +96,17 @@ public class LinkedList<T extends Comparable<T>> {
 			return;
 		Node<T> currentNode = this.start;
 
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < index; i++) {
 			currentNode = currentNode.getTail();
 		}
 		currentNode.setHead(newValue);
+	}
+
+	public void swap(int indexA, int indexB) {
+		// for (int i = 0; i < 2; i++) {
+		// currentNode = currentNode.getTail();
+		// }
+		// currentNode.setHead(newValue);
 	}
 
 	public boolean indexCheck(int index) {
