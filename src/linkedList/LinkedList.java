@@ -13,13 +13,6 @@ public class LinkedList<T extends Comparable<T>> {
 			length++;
 			last = newNode;
 		} else {
-
-			// Node<T> currentNode = this.start;
-			//
-			// while (currentNode.getTail() != null) {
-			// currentNode = currentNode.getTail();
-			// }
-			// currentNode.setTail(newNode);
 			last.setTail(newNode);
 
 			length++;
@@ -100,13 +93,6 @@ public class LinkedList<T extends Comparable<T>> {
 			currentNode = currentNode.getTail();
 		}
 		currentNode.setHead(newValue);
-	}
-
-	public void swap(int indexA, int indexB) {
-		// for (int i = 0; i < 2; i++) {
-		// currentNode = currentNode.getTail();
-		// }
-		// currentNode.setHead(newValue);
 	}
 
 	public boolean indexCheck(int index) {

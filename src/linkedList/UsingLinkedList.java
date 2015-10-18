@@ -9,13 +9,23 @@ public class UsingLinkedList {
 		for (int i = 0; i < key.length(); i++) {
 			word.append(key.charAt(i));
 		}
-		// word.insertAt(0, word, new Node<Character>('_', null));
-		// word.insertAt(1, word, new Node<Character>('_', null));
-		// word.insertAt(10, word, new Node<Character>('X', null));
-		word.reverseList();
-		System.out.println(word.toString());
-		System.out.println("Length = " + word.length);
 
+		word.reverseList();
+		System.out.println("Reverse: " + word.toString());
+
+		word.reverseList();
+		System.out.println("Reverse back: " + word.toString());
+
+		word.append('_');
+		System.out.println("Append: " + word.toString());
+
+		word.insertAt(5, word, new Node<Character>(' ', null));
+		System.out.println("Insert space: " + word.toString());
+
+		word.replaceValue('T', 2);
+		System.out.println("Replace 'V': " + word.toString());
+
+		System.out.println("Length: " + word.length);
 	}
 
 }

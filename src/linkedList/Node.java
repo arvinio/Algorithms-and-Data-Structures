@@ -32,4 +32,8 @@ public class Node<T> {
 		this.tail = newTail;
 	}
 
+	public void setHead(T newHead) {
+		this.head = newHead;
+	}
+
 }
