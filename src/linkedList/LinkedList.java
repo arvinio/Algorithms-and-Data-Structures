@@ -39,7 +39,7 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 
 	public void insertAt(int index, LinkedList<T> list, Node<T> newNode) {
-		if (index < 0 || index - 1 > getLength()) {
+		if (index < 0 || index - 1 > this.length) {
 			System.out.println("Index out of bounds.");
 			return;
 		}
@@ -59,6 +59,32 @@ public class LinkedList<T extends Comparable<T>> {
 			newNode.setTail(oldNext);
 			length++;
 		}
+	}
+
+	public void reverseList() {
+		// check if first three nodes exist before while-loop
+		if (this.start == null || this.start.getTail() == null || this.start.getTail().getTail() == null) {
+			return;
+		}
+		// separate case for start node
+		Node<T> secondNode = this.start.getTail();
+		Node<T> thirdNode = secondNode.getTail();
+		secondNode.setTail(this.start);
+		this.start.setTail(null);
+
+		// set final definitions
+		Node<T> currentNode = thirdNode;
+		Node<T> previousNode = secondNode;
+
+		while (currentNode.getTail() != null) {
+			Node<T> nextNode = currentNode.getTail();
+			currentNode.setTail(previousNode);
+			previousNode = currentNode;
+			currentNode = nextNode;
+		}
+		// since loop stops before last node
+		currentNode.setTail(previousNode);
+		this.start = currentNode;
 	}
 
 	public int getLength() {
