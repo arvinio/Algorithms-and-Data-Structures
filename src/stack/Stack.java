@@ -2,7 +2,7 @@ package stack;
 
 import linkedList.Node;
 
-public class Stack<T> {
+public class Stack {
 
 	Node top;
 
@@ -14,4 +14,17 @@ public class Stack<T> {
 		this.top = latest;
 	}
 
+	public Object pop() {
+		if (this.top == null) {
+			return null;
+		} else {
+			Object item = top.getHead();
+			this.top = top.getTail();
+			return item;
+		}
+	}
+
+	public Object peek() {
+		return this.top.getHead();
+	}
 }
