@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Builds associative array mapping inserted words to calculate char frequency.
  * Is case-INsensitive.
+ * Removes whitespace.
  * @author arvin
  *
  * @param <T>
