@@ -7,7 +7,7 @@ public class Stack {
 	Node top;
 
 	/**
-	 * @param item: new items pushed to stack point to the previous top value
+	 * @param item: new items pushed to stack point to the previous top.
 	 */
 	public void push(Object item) {
 		Node latest = new Node(item, top);
