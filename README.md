@@ -28,6 +28,11 @@ Contains my relevant Eclipse projects. These are almost exclusively written in J
 	* insertAt(index)
 	* replaceValue(newValue, index)
 
+* Stack -- Simple stack with simple functions
+	* Push
+	* Pop
+	* Peek
+
 ==================
 
 [Arvin Behshad](http://arvinb.com)
