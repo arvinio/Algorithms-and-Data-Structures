@@ -33,6 +33,9 @@ Contains my relevant Eclipse projects. These are almost exclusively written in J
 	* Pop
 	* Peek
 
+
+* asscArray -- An improvised implementation of a Set, without the hashing!
+	* Detects anagrams with linear time-complexity.
 ==================
 
 [Arvin Behshad](http://arvinb.com)
