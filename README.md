@@ -37,6 +37,9 @@ Contains my relevant Eclipse projects. These are almost exclusively written in J
 * asscArray -- My implementation of a HashMap, without the hashing!
 	* Maps all ASCII characters to their respective array index
 	* Detects anagrams in O(n) time
+	* 
+	
+* fibonacci -- Recursive method to find the Nth fibonacci number
 
 	
 ==================
