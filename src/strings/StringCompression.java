@@ -37,12 +37,15 @@ public class StringCompression {
 		int count = 1;
 		for (int i = 0; i < input.length(); i++) {
 			current = input.charAt(i);
-			prev = input.charAt(i - 1);
-			if ((i != 0) && (current == prev)) {
-				count++;
+			if (i != 0) {
+				prev = input.charAt(i - 1);
+				if (current == prev) {
+					count++;
+				}
 			}
-			if (!(i < input.length() - 1) && (current == input.charAt(i + 1))) {
+			if ((i >= input.length() - 1) || (current != input.charAt(i + 1))) {
 				addToOutput(input, i, count);
+				count = 1;
 			}
 		}
 	}
