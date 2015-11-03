@@ -1,12 +1,13 @@
-Challenges By Arvin
+Algorithms and Data Structures
 =================
 
-A collection of solved programming challenges that I find across the web.
+Contains my implementations of relevant challenges which I've found in books and on the web. 
 
-Search for folder names this document for more info about them.
 
-**Changelog**
-* Added Spotify Puzzle ID: Reversebinary
+**Examples include:**
+* Classic data structures
+* Classic sorting algorithms
+* Algorithm design problems
 
 
 Contents
@@ -28,6 +29,19 @@ Contains my relevant Eclipse projects. These are almost exclusively written in J
 	* insertAt(index)
 	* replaceValue(newValue, index)
 
+* Stack -- Simple stack with simple functions
+	* Push
+	* Pop
+	* Peek
+
+* asscArray -- My implementation of a HashMap, without the hashing!
+	* Maps all ASCII characters to their respective array index
+	* Detects anagrams in O(n) time
+	* 
+	
+* fibonacci -- Recursive method to find the Nth fibonacci number
+
+	
 ==================
 
 [Arvin Behshad](http://arvinb.com)
