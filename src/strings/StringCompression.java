@@ -28,7 +28,6 @@ public class StringCompression {
 		String input = "aabcccccaaa";
 		StringCompression sc = new StringCompression();
 		sc.count(input);
-
 	}
 
 	private void count(String input) {
@@ -56,5 +55,4 @@ public class StringCompression {
 		sb.append(count);
 		System.out.println(sb);
 	}
-
 }
