@@ -24,26 +24,34 @@ package strings;
 
 public class StringCompression {
 
-	public static String input = "aabcccccaaa";
-
 	public static void main(String[] args) {
-
+		String input = "aabcccccaaa";
 		StringCompression sc = new StringCompression();
-		char[] indata = input.toCharArray();
-
-		int count = 0;
-		for (int i = 0; i < input.length(); i++) {
-			char c = input.charAt(i);
-			count++;
-			sc.addToOutput(c, count);
-		}
+		sc.count(input);
 
 	}
 
-	private void addToOutput(char c, int count) {
+	private void count(String input) {
+		char prev = 0;
+		char current = '0';
+		int count = 1;
+		for (int i = 0; i < input.length(); i++) {
+			current = input.charAt(i);
+			prev = input.charAt(i - 1);
+			if ((i != 0) && (current == prev)) {
+				count++;
+			}
+			if (!(i < input.length() - 1) && (current == input.charAt(i + 1))) {
+				addToOutput(input, i, count);
+			}
+		}
+	}
+
+	private void addToOutput(String input, int i, int count) {
 		StringBuilder sb = new StringBuilder(input.length());
-		sb.append(c);
+		sb.append(input.charAt(i));
 		sb.append(count);
+		System.out.println(sb);
 	}
 
 }
